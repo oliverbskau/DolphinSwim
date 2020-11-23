@@ -2,7 +2,8 @@ package com.company;
 
 public class Navigation {
 
-    //com.company.Navigation of program menu
+    //Navigation of program menu
+    Register register = new Register();
     public void menuNavigation(){
 
         boolean navigator = true;
@@ -12,9 +13,11 @@ public class Navigation {
            switch(choice){
 
                case 1:
+                   register.registerAdd();
                    break;
 
                case 2:
+                   register.printAll();
                    break;
 
                case 3:

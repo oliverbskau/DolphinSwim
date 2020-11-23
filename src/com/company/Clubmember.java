@@ -1,13 +1,19 @@
 package com.company;
 
 public class Clubmember {
-
     //Variables to define a member
     int age;
     int ageType;
     String name;
     int memberType;
 
+
+    public Clubmember(int age, int ageType, String name, int memberType){
+        setAge(age);
+        setAgeType(ageType);
+        setName(name);
+        setMemberType(memberType);
+    }
 
     //Get age of member
     public int getAge() {
@@ -40,4 +46,9 @@ public class Clubmember {
     public void setMemberType(int memberType) {
         this.memberType = memberType;
     }
+
+    public String toString(){
+        return "navn" + "age" + "ageType" + "memberType";
+    }
+
 }
