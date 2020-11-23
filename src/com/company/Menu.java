@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
-
+//Generic menu to use in main and further use of navigation class's switch
 public class Menu {
 
     private String menuHeader; //The text above the menu
@@ -14,6 +14,7 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
+    //Visually show the content of menu
     public void printMenu() {
         System.out.println("\n" + menuHeader + "\n----------------");
         System.out.println("Menu: Vælg tal og tryk enter");
@@ -23,6 +24,7 @@ public class Menu {
         }
     }
 
+    //Checks if the user's input is valid
     public int setChoiceOfMenuAndValidateOutput() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;

@@ -1,10 +1,13 @@
 public class Clubmember {
 
+    //Variables to define a member
     int age;
     int ageType;
     String name;
     int memberType;
 
+
+    //Get age of member
     public int getAge() {
         return age;
     }
@@ -12,6 +15,7 @@ public class Clubmember {
         this.age = age;
     }
 
+    //Get age group of member
     public int getAgeType() {
         return ageType;
     }
@@ -19,6 +23,7 @@ public class Clubmember {
         this.ageType = ageType;
     }
 
+    //Get name of member
     public String getName() {
         return name;
     }
@@ -26,6 +31,7 @@ public class Clubmember {
         this.name = name;
     }
 
+    //Get membership of member
     public int getMemberType() {
         return memberType;
     }
