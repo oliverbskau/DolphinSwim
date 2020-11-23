@@ -1,17 +1,18 @@
 package com.company;
 
 public class Main {
-    /* author Phillip
-
-     */
-
-
-
     public static void main(String[] args) {
-        Main main = new Main();
-        main.run();
+        new Main().run();
     }
     void run(){
 
+        String menuHeader = "Delfinen Svømmeklub";
+        String userChoiceText = "Vælg en menu, skriv menutal og tryk enter";
+        String[] menuItems = {"Opret medlem","Medlemsoplysninger",
+                "Kontingenter","Svømmeresultater","Konkurrence svømmere","Afslut program"};
+        Menu menu = new Menu(menuHeader, userChoiceText, menuItems);
+
+        Navigation navigation = new Navigation();
+        navigation.menuNavigation();
     }
 }

@@ -1,3 +1,5 @@
+package com.company;
+
 public class Clubmember {
 
     //Variables to define a member
