@@ -3,12 +3,12 @@ package com.company;
 public class Clubmember {
     //Variables to define a member
     int age;
-    int ageType;
+    String ageType;
     String name;
-    int memberType;
+    String memberType;
 
 
-    public Clubmember(int age, int ageType, String name, int memberType){
+    public Clubmember(int age, String ageType, String name, String memberType){
         setAge(age);
         setAgeType(ageType);
         setName(name);
@@ -24,10 +24,10 @@ public class Clubmember {
     }
 
     //Get age group of member
-    public int getAgeType() {
+    public String getAgeType() {
         return ageType;
     }
-    public void setAgeType(int ageType) {
+    public void setAgeType(String ageType) {
         this.ageType = ageType;
     }
 
@@ -40,16 +40,16 @@ public class Clubmember {
     }
 
     //Get membership of member
-    public int getMemberType() {
+    public String getMemberType() {
         return memberType;
     }
-    public void setMemberType(int memberType) {
+    public void setMemberType(String memberType) {
         this.memberType = memberType;
     }
 
     public String toString(){
-        return "Navn: " + getName() + " Alder: " + getAge() + " Aldersgruppe: " + getAgeType()
-                + " Passiv/aktiv: " + getMemberType();
+        return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
+                + "/ Medlem status: " + getMemberType();
     }
 
 }
