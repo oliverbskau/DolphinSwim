@@ -48,7 +48,8 @@ public class Clubmember {
     }
 
     public String toString(){
-        return "navn" + "age" + "ageType" + "memberType";
+        return "Navn" + getName() + "Alder" + getAge() + "Aldersgruppe" + getAgeType()
+                + "Passiv/aktiv" + getMemberType();
     }
 
 }
