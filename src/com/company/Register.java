@@ -14,7 +14,7 @@ public class Register {
         Scanner scanner = new Scanner(System.in);
         int ageType = 0;
         int memberType = 0;
-        System.out.print("Navn: ");
+        System.out.print("\nNavn: ");
         String name = scanner.nextLine();
         System.out.print("\nAlder: ");
         int age = scanner.nextInt();

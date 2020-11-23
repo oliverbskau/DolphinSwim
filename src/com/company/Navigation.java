@@ -1,15 +1,17 @@
 package com.company;
+import java.util.Scanner;
 
 public class Navigation {
 
     //Navigation of program menu
     Register register = new Register();
-    public void menuNavigation(){
+    public void menuNavigation(Menu menu){
 
         boolean navigator = true;
 
-        int choice = 0;
         while(navigator){
+            menu.printMenu();
+            int choice = menu.setChoiceOfMenuAndValidateOutput();
            switch(choice){
 
                case 1:

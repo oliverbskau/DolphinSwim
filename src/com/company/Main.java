@@ -7,12 +7,12 @@ public class Main {
     void run(){
 
         String menuHeader = "Delfinen Svømmeklub";
-        String userChoiceText = "Vælg en menu, skriv menutal og tryk enter";
+        String userChoiceText = "Skriv menu tal og tryk enter: ";
         String[] menuItems = {"Opret medlem","Medlemsoplysninger",
                 "Kontingenter","Svømmeresultater","Konkurrence svømmere","Afslut program"};
         Menu menu = new Menu(menuHeader, userChoiceText, menuItems);
 
         Navigation navigation = new Navigation();
-        navigation.menuNavigation();
+        navigation.menuNavigation(menu);
     }
 }
