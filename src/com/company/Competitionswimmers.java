@@ -1,5 +1,9 @@
 package com.company;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Scanner;
+
 /**
  * @version 1.0
  * @author jonas
@@ -8,16 +12,31 @@ public class Competitionswimmers extends Clubmember {
 
     String swimmingDisciplin;
 
-    public Competitionswimmers(int age, String ageType, String name, String memberType, String competition) {
-        super(age, ageType, name, memberType, competition);
+    public Competitionswimmers(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition ,String swimmingDisciplin) {
+        super(age, ageType, name, memberType, subscriptionPrice, competition);
+        this.swimmingDisciplin = swimmingDisciplin;
     }
 
-    public String getTopSwimmingTime(Clubmember clubmember) {
+    public String registerBestSwimtime(Clubmember competitionMember) {
+        Scanner scanner = new Scanner(System.in);
+        LocalDateTime today = LocalDateTime.now();
+        String swimTime;
+
+        System.out.println("Hvad er tiden der skal registeres? (minut:sekunder) = (0:00)");
+        swimTime = scanner.nextLine() + ", " + today;
+
+        return swimTime;
+    }
+
+    public String getTopSwimmingTime(Clubmember competitionMember) {
 
         return "";
     }
 
-
+    public String getCompetitionsCompetedIn(Clubmember competitionMember) {
+        StringBuilder sb = new StringBuilder();
+        return sb.toString();
+    }
     public String getSwimmingDisciplin() {
         return swimmingDisciplin;
     }

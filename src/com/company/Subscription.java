@@ -1,7 +1,7 @@
 package com.company;
 
 public class Subscription {
-    public static double calculateTotalOfSubcribtions(Clubmember clubmember) {
+    public double calculateTotalOfSubcribtions(Clubmember clubmember) {
         double totalOfPrice = 0;
 
         if (clubmember.age < 18){

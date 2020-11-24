@@ -47,14 +47,16 @@ public class Register {
                     memberNumber2++;
                     System.out.println(memberNumber2 + ". " + members.get(i).toString());
                 }
-                System.out.println("\nTilføj medlem til kokurrence svømmere ved at skrive tallet foran navnet" +
+                System.out.print("\nTilføj medlem til kokurrence svømmere ved at skrive tallet foran navnet" +
                         " og tryk enter");
                 System.out.print("Vælg: ");
+                System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+                String swimDisciplin = scanner.nextLine();
                 int choice3 = scanner.nextInt()-1;
                 Clubmember clubmember = members.get(choice3);
                 clubmember.setCompetition("Konkurrence svømmer");
                 competitionswimmers.add(new Competitionswimmers(clubmember.getAge(),clubmember.getAgeType(),
-                        clubmember.getName(),clubmember.getMemberType(),clubmember.getCompetition()));
+                        clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getCompetition(),swimDisciplin));
                 break;
             default:
                 System.out.println("Ikke gyldig valgmulighed, Du er tilbage i menuen");
@@ -67,6 +69,9 @@ public class Register {
         String ageType = "";
         String memberType = "";
         String competition = "";
+        String swimmingDisciplin = "";
+        double subscriptionPrice;
+
         System.out.print("\nNavn: ");
         String name = scanner.nextLine();
         System.out.print("\nAlder: ");
@@ -92,15 +97,25 @@ public class Register {
         System.out.println("1 = ja");
         System.out.println("2 = nej");
         System.out.print("Vælg: ");
-         int choice2 = scanner.nextInt();
+        int choice2 = scanner.nextInt();
+        subscriptionPrice = new Subscription().calculateTotalOfSubcribtions(searchForClubMember(name));
         if(choice2 == 1){
             competition = "Konkurrence svømmer";
-            competitionswimmers.add(new Competitionswimmers(age, ageType, name, memberType, competition));
-            members.add(new Clubmember(age, ageType, name, memberType, competition));
+            competitionswimmers.add(new Competitionswimmers(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin));
+            members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,competition));
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
-            members.add(new Clubmember(age, ageType, name, memberType, competition));
         }
 
+        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice, competition));
+    }
+
+    public Clubmember searchForClubMember(String name) {
+        for (int i = 0; i < members.size(); i++) {
+            if(members.get(i).getName().equals(name)){
+                return members.get(i);
+            }
+        }
+        return null;
     }
 }

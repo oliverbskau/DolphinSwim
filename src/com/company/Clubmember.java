@@ -5,20 +5,23 @@ package com.company;
  */
 
 public class Clubmember {
+
     //Variables to define a member
     int age;
+    double subscriptionPrice;
     String ageType;
     String name;
     String memberType;
     String competition;
 
 
-    public Clubmember(int age, String ageType, String name, String memberType, String competition){
+    public Clubmember(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition){
         setAge(age);
         setAgeType(ageType);
         setName(name);
         setMemberType(memberType);
         setCompetition(competition);
+        setSubscriptionPrice(subscriptionPrice);
     }
 
     //Get age of member
@@ -60,10 +63,17 @@ public class Clubmember {
     public void setCompetition(String competition){
         this.competition = competition;
     }
+    public double getSubscriptionPrice() {
+        return subscriptionPrice;
+    }
+
+    public void setSubscriptionPrice(double subscriptionPrice) {
+        this.subscriptionPrice = subscriptionPrice;
+    }
 
     public String toString(){
         return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
-                + "/ Medlem status: " + getMemberType() + "/ Svømmer status: " + getCompetition();
+                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + "/ Svømmer status: " + getCompetition();
     }
 
 }
