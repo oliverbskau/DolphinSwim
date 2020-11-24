@@ -2,15 +2,37 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Oliver Brücker Skau
+ * @author Jonas Kunert
+ */
+
 public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
 
     public void printAll(){
         int memberNumber = 0;
         for(int i = 0 ; i < members.size() ; i++) {
-            System.out.println("");
+            System.out.println();
             memberNumber++;
             System.out.println(memberNumber + ". " + members.get(i).toString());
+        }
+        System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere");
+        System.out.print("Vælg: ");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        switch(choice){
+            case 1:
+                break;
+            case 2:
+                registerAdd();
+                break;
+            case 3:
+
+                break;
+            default:
+                System.out.println("Ikke gyldig valgmulighed, Du er tilbage i menuen");
+                break;
         }
     }
 
@@ -18,6 +40,7 @@ public class Register {
         Scanner scanner = new Scanner(System.in);
         String ageType = "";
         String memberType = "";
+        String competition = "";
         System.out.print("\nNavn: ");
         String name = scanner.nextLine();
         System.out.print("\nAlder: ");
@@ -39,6 +62,16 @@ public class Register {
         }else if(choice == 2){
             memberType = "Aktiv";
         }
-        members.add(new Clubmember(age, ageType, name, memberType));
+        System.out.println("Konkurrence svømmer?");
+        System.out.println("1 = ja");
+        System.out.println("2 = nej");
+        System.out.print("Vælg: ");
+         int choice2 = scanner.nextInt();
+        if(choice2 == 1){
+            competition = "Konkurrence svømmer";
+        }else if(choice2 == 2){
+            competition = "ikke konkurrence svømmer";
+        }
+        members.add(new Clubmember(age, ageType, name, memberType, competition));
     }
 }
