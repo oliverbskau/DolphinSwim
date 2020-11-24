@@ -18,12 +18,9 @@ public class Competitionswimmers extends Clubmember {
     }
 
 
-
-
     public String getSwimmingDisciplin() {
         return swimmingDisciplin;
     }
-
     public void setSwimmingDisciplin(String swimmingDisciplin) {
         this.swimmingDisciplin = swimmingDisciplin;
     }

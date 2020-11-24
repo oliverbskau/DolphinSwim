@@ -9,6 +9,17 @@ import java.util.Scanner;
 
 public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
+    ArrayList<Competitionswimmers> competitionswimmers = new ArrayList<>();
+
+    public void printCompetitionswimmers(){
+        int memberNumber = 0;
+        for(int i = 0 ; i < competitionswimmers.size() ; i++) {
+            System.out.println();
+            memberNumber++;
+            System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
+        }
+
+    }
 
     public void printAll(){
         int memberNumber = 0;
@@ -28,7 +39,22 @@ public class Register {
                 registerAdd();
                 break;
             case 3:
-
+                int memberNumber2 = 0;
+                System.out.println("Konkurrence svømmere");
+                System.out.println("--------------------");
+                for(int i = 0 ; i < members.size() ; i++) {
+                    System.out.println();
+                    memberNumber2++;
+                    System.out.println(memberNumber2 + ". " + members.get(i).toString());
+                }
+                System.out.println("\nTilføj medlem til kokurrence svømmere ved at skrive tallet foran navnet" +
+                        " og tryk enter");
+                System.out.print("Vælg: ");
+                int choice3 = scanner.nextInt()-1;
+                Clubmember clubmember = members.get(choice3);
+                clubmember.setCompetition("Konkurrence svømmer");
+                competitionswimmers.add(new Competitionswimmers(clubmember.getAge(),clubmember.getAgeType(),
+                        clubmember.getName(),clubmember.getMemberType(),clubmember.getCompetition()));
                 break;
             default:
                 System.out.println("Ikke gyldig valgmulighed, Du er tilbage i menuen");
@@ -69,9 +95,12 @@ public class Register {
          int choice2 = scanner.nextInt();
         if(choice2 == 1){
             competition = "Konkurrence svømmer";
+            competitionswimmers.add(new Competitionswimmers(age, ageType, name, memberType, competition));
+            members.add(new Clubmember(age, ageType, name, memberType, competition));
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
+            members.add(new Clubmember(age, ageType, name, memberType, competition));
         }
-        members.add(new Clubmember(age, ageType, name, memberType, competition));
+
     }
 }

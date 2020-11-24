@@ -38,6 +38,7 @@ public class Navigation {
                     break;
 
                 case 5:
+                    register.printCompetitionswimmers();
                     break;
 
                 case 6:
