@@ -1,11 +1,30 @@
 package com.company;
 
-public class Competitionswimmers extends Clubmember{
+/**
+ * @version 1.0
+ * @author jonas
+ */
+public class Competitionswimmers extends Clubmember {
 
-    public Competitionswimmers(int age, String ageType, String name, String memberType) {
-        super(age, ageType, name, memberType);
+    String swimmingDisciplin;
+
+    public Competitionswimmers(int age, String ageType, String name, String memberType, String competition) {
+        super(age, ageType, name, memberType, competition);
+    }
+
+    public String getTopSwimmingTime(Clubmember clubmember) {
+
+        return "";
     }
 
 
 
+
+    public String getSwimmingDisciplin() {
+        return swimmingDisciplin;
+    }
+
+    public void setSwimmingDisciplin(String swimmingDisciplin) {
+        this.swimmingDisciplin = swimmingDisciplin;
+    }
 }

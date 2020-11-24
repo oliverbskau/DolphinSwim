@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * @author Jonas Kunert
+ */
+
 import java.util.Scanner;
 
 /**
