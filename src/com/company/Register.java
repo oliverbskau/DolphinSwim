@@ -13,6 +13,7 @@ public class Register {
             System.out.println(memberNumber + ". " + members.get(i).toString());
         }
     }
+
     public void registerAdd() {
         Scanner scanner = new Scanner(System.in);
         String ageType = "";

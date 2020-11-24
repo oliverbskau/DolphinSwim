@@ -1,7 +1,11 @@
 package com.company;
 
 import java.util.Scanner;
-//Generic menu to use in main and further use of navigation class's switch
+
+/**
+ * Generic menu to use in main and further use of navigation class's switch
+ */
+
 public class Menu {
 
     private String menuHeader; //The text above the menu

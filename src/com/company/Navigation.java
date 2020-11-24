@@ -5,6 +5,11 @@ public class Navigation {
 
     //Navigation of program menu
     Register register = new Register();
+
+    /**
+     * @author Oliver
+     * @param menu
+     */
     public void menuNavigation(Menu menu){
 
         boolean navigator = true;
@@ -12,31 +17,28 @@ public class Navigation {
         while(navigator){
             menu.printMenu();
             int choice = menu.setChoiceOfMenuAndValidateOutput();
-           switch(choice){
+                switch(choice){
 
-               case 1:
-                   register.registerAdd();
-                   break;
+                case 1:
+                    register.registerAdd();
+                    break;
 
-               case 2:
-                   register.printAll();
-                   break;
+                case 2:
+                    register.printAll();
+                    break;
 
-               case 3:
-                   break;
+                case 3:
+                    break;
 
-               case 4:
-                   break;
+                case 4:
+                    break;
 
-               case 5:
-                   break;
+                case 5:
+                    break;
 
-               case 6:
-                   System.exit(0);
-                   break;
-
-
-
+                case 6:
+                    System.exit(0);
+                    break;
            }
         }
     }
