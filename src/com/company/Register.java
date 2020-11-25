@@ -11,6 +11,7 @@ public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
     ArrayList<Competitionswimmers> competitionswimmers = new ArrayList<>();
 
+
     public void printCompetitionswimmers(){
         int memberNumber = 0;
         for(int i = 0 ; i < competitionswimmers.size() ; i++) {
@@ -50,10 +51,13 @@ public class Register {
                 }
                 System.out.print("\nTilføj medlem til kokurrence svømmere ved at skrive tallet foran navnet" +
                         " og tryk enter");
-                System.out.print("Vælg: ");
-                System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
-                String swimDisciplin = scanner.nextLine();
+                System.out.print("\nVælg: ");
                 int choice3 = scanner.nextInt()-1;
+                System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+                scanner.nextLine();
+                System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
+                System.out.print("Vælg: ");
+                String swimDisciplin = scanner.nextLine();
                 Clubmember clubmember = members.get(choice3);
                 clubmember.setCompetition("Konkurrence svømmer");
                 competitionswimmers.add(new Competitionswimmers(clubmember.getAge(),clubmember.getAgeType(),

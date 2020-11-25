@@ -42,4 +42,10 @@ public class Competitionswimmers extends Clubmember {
     public void setSwimmingDisciplin(String swimmingDisciplin) {
         this.swimmingDisciplin = swimmingDisciplin;
     }
+
+    public String toString(){
+        return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
+                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + "/ Svømmer status: " + getCompetition()
+                + "/ Svømmmedeciplin: " + getSwimmingDisciplin();
+    }
 }

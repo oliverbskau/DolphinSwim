@@ -2,7 +2,7 @@ package com.company;
 import java.util.Scanner;
 
 /**
- * @auther Oliver Brücker Skau
+ * @author Oliver Brücker Skau
  */
 
 public class Navigation {
