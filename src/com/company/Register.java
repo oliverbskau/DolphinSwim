@@ -12,6 +12,7 @@ public class Register {
     ArrayList<Competitionswimmers> competitionswimmers = new ArrayList<>();
 
 
+    //Se konkurrencesvømmere og fjern dem igen
     public void printCompetitionswimmers(){
         int memberNumber = 0;
         for(int i = 0 ; i < competitionswimmers.size() ; i++) {
@@ -19,9 +20,31 @@ public class Register {
             memberNumber++;
             System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
         }
-
+        System.out.println("\n1. Tilbage til menuen\n2. Fjern medlem fra konkurrence svømmere");
+        System.out.print("Vælg: ");
+        Scanner scanner = new Scanner(System.in);
+        int choice4 = 0;
+        choice4 = scanner.nextInt();
+        switch(choice4){
+            case 1:
+                break;
+            case 2:
+                memberNumber = 0;
+                for(int i = 0 ; i < competitionswimmers.size() ; i++) {
+                    System.out.println();
+                    memberNumber++;
+                    System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
+                }
+                System.out.println("\nFjern medlem fra kokurrence svømmere ved at skrive tallet foran navnet" +
+                                " og tryk enter");
+                System.out.print("Vælg: ");
+                int removeCompetitionSwimmer = scanner.nextInt()-1;
+                competitionswimmers.remove(removeCompetitionSwimmer);
+                break;
+        }
     }
 
+    //Se medlemmer, opret medlemmer fra medlemsoplysningermenuen eller tilføj medlem til konkurrence svømmere
     public void printAll(){
         int memberNumber = 0;
         for(int i = 0 ; i < members.size() ; i++) {
@@ -69,6 +92,7 @@ public class Register {
         }
     }
 
+    //Tilføj nyt medlem
     public void registerAdd() {
         Scanner scanner = new Scanner(System.in);
         String ageType = "";
