@@ -1,12 +1,7 @@
 package com.company;
 
-/**
- * @author Rasmus
- */
 public class Subscription {
-
     public double calculateTotalOfSubcriptions(int age, String memberType) {
-
         double totalOfPrice = 0;
 
         if (age < 18){
@@ -18,6 +13,7 @@ public class Subscription {
         }else if(memberType == "Passiv") {
             totalOfPrice = 500;
         }
+
 
         return totalOfPrice;
     }
