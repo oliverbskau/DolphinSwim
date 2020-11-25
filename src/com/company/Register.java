@@ -32,6 +32,7 @@ public class Register {
         System.out.print("Vælg: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+
         switch(choice){
             case 1:
                 break;
