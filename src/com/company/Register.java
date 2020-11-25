@@ -23,7 +23,7 @@ public class Register {
         System.out.println("\n1. Tilbage til menuen\n2. Fjern medlem fra konkurrence svømmere");
         System.out.print("Vælg: ");
         Scanner scanner = new Scanner(System.in);
-        int choice4 = 0;
+        int choice4;
         choice4 = scanner.nextInt();
         switch(choice4){
             case 1:
