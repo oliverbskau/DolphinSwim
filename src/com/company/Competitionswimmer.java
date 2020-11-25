@@ -7,11 +7,11 @@ import java.util.Scanner;
  * @version 1.0
  * @author jonas
  */
-public class Competitionswimmers extends Clubmember {
+public class Competitionswimmer extends Clubmember {
 
     String swimmingDisciplin;
 
-    public Competitionswimmers(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition ,String swimmingDisciplin) {
+    public Competitionswimmer(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition , String swimmingDisciplin) {
         super(age, ageType, name, memberType, subscriptionPrice, competition);
         this.swimmingDisciplin = swimmingDisciplin;
     }

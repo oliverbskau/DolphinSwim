@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
-    ArrayList<Competitionswimmers> competitionswimmers = new ArrayList<>();
+    ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
 
     //Se konkurrencesvømmere og fjern dem igen
@@ -29,22 +29,26 @@ public class Register {
             case 1:
                 break;
             case 2:
-                memberNumber = 0;
+                int memberNumber3 = 0;
                 for(int i = 0 ; i < competitionswimmers.size() ; i++) {
                     System.out.println();
-                    memberNumber++;
-                    System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
+                    memberNumber3++;
+                    System.out.println(memberNumber3 + ". " + competitionswimmers.get(i).toString());
                 }
                 System.out.println("\nFjern medlem fra kokurrence svømmere ved at skrive tallet foran navnet" +
                                 " og tryk enter");
                 System.out.print("Vælg: ");
                 int removeCompetitionSwimmer = scanner.nextInt()-1;
+                searchForClubMember(competitionswimmers.get(removeCompetitionSwimmer).getName())
+                        .setCompetition("ikke konkurrence svømmer");
                 competitionswimmers.remove(removeCompetitionSwimmer);
+
                 break;
         }
     }
 
     //Se medlemmer, opret medlemmer fra medlemsoplysningermenuen eller tilføj medlem til konkurrence svømmere
+    //Fjern medlemmer
     public void printAll(){
         int memberNumber = 0;
         for(int i = 0 ; i < members.size() ; i++) {
@@ -52,7 +56,8 @@ public class Register {
             memberNumber++;
             System.out.println(memberNumber + ". " + members.get(i).toString());
         }
-        System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere");
+        System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere" +
+                "\n4. Fjern medlem");
         System.out.print("Vælg: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -83,9 +88,22 @@ public class Register {
                 String swimDisciplin = scanner.nextLine();
                 Clubmember clubmember = members.get(choice3);
                 clubmember.setCompetition("Konkurrence svømmer");
-                competitionswimmers.add(new Competitionswimmers(clubmember.getAge(),clubmember.getAgeType(),
+                competitionswimmers.add(new Competitionswimmer(clubmember.getAge(),clubmember.getAgeType(),
                         clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getCompetition(),swimDisciplin));
                 break;
+            case 4:
+                int memberNumber4 = 0;
+                for(int i = 0 ; i < members.size() ; i++) {
+                    System.out.println();
+                    memberNumber4++;
+                    System.out.println(memberNumber4 + ". " + members.get(i).toString());
+                }
+                System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes");
+                System.out.print("Vælg: ");
+                int removeMember = scanner.nextInt()-1;
+                members.remove(removeMember);
+                break;
+
             default:
                 System.out.println("Ikke gyldig valgmulighed, Du er tilbage i menuen");
                 break;
@@ -130,12 +148,15 @@ public class Register {
         subscriptionPrice = new Subscription().calculateTotalOfSubcriptions(age,memberType);
         if(choice2 == 1){
             competition = "Konkurrence svømmer";
-            competitionswimmers.add(new Competitionswimmers(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin));
-            members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,competition));
+            System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+            scanner.nextLine();
+            System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
+            System.out.print("Vælg: ");
+            swimmingDisciplin = scanner.nextLine();
+            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin));
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
         }
-
         members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice, competition));
     }
 
