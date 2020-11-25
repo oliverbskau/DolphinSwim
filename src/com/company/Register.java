@@ -98,7 +98,7 @@ public class Register {
         System.out.println("2 = nej");
         System.out.print("Vælg: ");
         int choice2 = scanner.nextInt();
-        subscriptionPrice = new Subscription().calculateTotalOfSubcribtions(searchForClubMember(name));
+        subscriptionPrice = new Subscription().calculateTotalOfSubcriptions(age,memberType);
         if(choice2 == 1){
             competition = "Konkurrence svømmer";
             competitionswimmers.add(new Competitionswimmers(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin));
