@@ -7,12 +7,12 @@ package com.company;
 public class Clubmember {
 
     //Variables to define a member
-    int age;
-    double subscriptionPrice;
-    String ageType;
-    String name;
-    String memberType;
-    String competition;
+    private int age;
+    private double subscriptionPrice;
+    private String ageType;
+    private String name;
+    private String memberType;
+    private String competition;
 
 
     public Clubmember(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition){

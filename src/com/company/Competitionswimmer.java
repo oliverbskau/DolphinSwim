@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -9,22 +10,24 @@ import java.util.Scanner;
  */
 public class Competitionswimmer extends Clubmember {
 
-    String swimmingDisciplin;
+    private ArrayList<String> swimTimes = new ArrayList<>();
+
+    private String swimmingDisciplin;
 
     public Competitionswimmer(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition , String swimmingDisciplin) {
         super(age, ageType, name, memberType, subscriptionPrice, competition);
         this.swimmingDisciplin = swimmingDisciplin;
     }
 
-    public String registerBestSwimtime(Clubmember competitionMember) {
+    public void registerBestSwimtime(Clubmember competitionMember) {
         Scanner scanner = new Scanner(System.in);
         LocalDateTime today = LocalDateTime.now();
         String swimTime;
 
         System.out.println("Hvad er tiden der skal registeres? (minut:sekunder) = (0:00)");
         swimTime = scanner.nextLine() + ", " + today;
-
-        return swimTime;
+        System.out.printf("\nTid registreret: %s",swimTime);
+        swimTimes.add(swimTime);
     }
 
     public String getTopSwimmingTime(Clubmember competitionMember) {

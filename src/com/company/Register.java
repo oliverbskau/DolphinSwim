@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 
 public class Register {
+
     ArrayList<Clubmember> members = new ArrayList<>();
     ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
