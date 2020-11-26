@@ -1,6 +1,4 @@
 package com.company;
-import java.util.Scanner;
-
 /**
  * @author Oliver Brücker Skau
  */
