@@ -58,7 +58,7 @@ public class Register {
             System.out.println(memberNumber + ". " + members.get(i).toString());
         }
         System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere" +
-                "\n4. Fjern medlem");
+                "\n4. Fjern medlem\n5. Skift medlem status");
         System.out.print("Vælg: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -99,10 +99,32 @@ public class Register {
                     memberNumber4++;
                     System.out.println(memberNumber4 + ". " + members.get(i).toString());
                 }
-                System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes");
+                System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes og tryk enter");
                 System.out.print("Vælg: ");
                 int removeMember = scanner.nextInt()-1;
                 members.remove(removeMember);
+                break;
+            case 5:
+                int memberNumber5 = 0;
+                for(int i = 0 ; i < members.size() ; i++) {
+                    System.out.println();
+                    memberNumber5++;
+                    System.out.println(memberNumber5 + ". " + members.get(i).toString());
+                }
+                System.out.println("\nSkriv tallet foran navnet på den person som skal have ændret status" +
+                        " og tryk enter");
+                System.out.print("Vælg: ");
+                int currentMemberIndex = scanner.nextInt()-1;
+                Clubmember memberStatus = searchForClubMember(members.get(currentMemberIndex).getName());
+                if (memberStatus.getMemberType().equals("Passiv")){
+                    memberStatus.setMemberType("Aktiv");
+                    if(competitionswimmers.size()>0)
+                    searchForCompetitionswimmer(members.get(currentMemberIndex).getName()).setMemberType("Aktiv");
+                }else if(memberStatus.getMemberType().equals("Aktiv")){
+                    memberStatus.setMemberType("Passiv");
+                    if(competitionswimmers.size()>0)
+                    searchForCompetitionswimmer(members.get(currentMemberIndex).getName()).setMemberType("Passiv");
+                }
                 break;
 
             default:
@@ -169,4 +191,13 @@ public class Register {
         }
         return null;
     }
+    public Competitionswimmer searchForCompetitionswimmer(String name) {
+        for (int i = 0; i < competitionswimmers.size(); i++) {
+            if(competitionswimmers.get(i).getName().equals(name)){
+                return competitionswimmers.get(i);
+            }
+        }
+        return null;
+    }
+
 }
