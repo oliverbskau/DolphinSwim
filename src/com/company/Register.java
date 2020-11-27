@@ -90,7 +90,7 @@ public class Register {
                 Clubmember clubmember = members.get(choice3);
                 clubmember.setCompetition("Konkurrence svømmer");
                 competitionswimmers.add(new Competitionswimmer(clubmember.getAge(),clubmember.getAgeType(),
-                        clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getCompetition(),swimDisciplin));
+                        clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getCompetition(),swimDisciplin,"0"));
                 break;
             case 4:
                 int memberNumber4 = 0;
@@ -176,7 +176,7 @@ public class Register {
             System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
             System.out.print("Vælg: ");
             swimmingDisciplin = scanner.nextLine();
-            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin));
+            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin, "0"));
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
         }

@@ -31,10 +31,10 @@ public class Navigation {
 
                 case 3: //Kontigenter - lav sådan at man kan se alle personers pris for kontigenter og restance hvis der er nogle
                     double total = new Subscription().getTotalOfSubscriptions(register.members);
-
                     break;
 
-                case 4:
+                case 4: //Svømmetider
+
                     break;
 
                 case 5:
