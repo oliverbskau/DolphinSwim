@@ -35,6 +35,7 @@ public class Subscription {
         for (int i = 0; i < members.size(); i++) {
             total += members.get(i).getSubscriptionPrice();
         }
+        System.out.println("\nDen totale indtjening er: " + total);
         return total;
     }
 

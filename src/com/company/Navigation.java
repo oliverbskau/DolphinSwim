@@ -31,7 +31,7 @@ public class Navigation {
 
                 case 3: //Kontigenter - lav sådan at man kan se alle personers pris for kontigenter og restance hvis der er nogle
                     double total = new Subscription().getTotalOfSubscriptions(register.members);
-                    System.out.println("Den totale indtjening er: " + total);
+
                     break;
 
                 case 4:
