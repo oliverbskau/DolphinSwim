@@ -8,7 +8,6 @@ public class Navigation {
     //Navigation of program menu
     Register register = new Register();
     SwimmingRecords swimmingRecords = new SwimmingRecords();
-    Competitionswimmer competitionswimmer = new Competitionswimmer();
 
     /**
      * @author Oliver
@@ -19,8 +18,10 @@ public class Navigation {
         boolean navigator = true;
 
         while(navigator){
+
             menu.printMenu();
             int choice = menu.setChoiceOfMenuAndValidateOutput();
+
                 switch(choice){
 
                 case 1:
@@ -37,8 +38,7 @@ public class Navigation {
 
                 case 4: //Svømmetider
                     swimmingRecords.printAll(register.competitionswimmers);
-                    swimmingRecords.registerBestSwimtime();
-                    swimmingRecords.get5TopSwimmingTimes(register.competitionswimmers);
+                    swimmingRecords.registerBestSwimtime(register.competitionswimmers);
                     break;
 
                 case 5:

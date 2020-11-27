@@ -1,10 +1,5 @@
 package com.company;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
-
 /**
  * @version 1.0
  * @author jonas
@@ -13,7 +8,6 @@ public class Competitionswimmer extends Clubmember {
 
     private String swimmingDisciplin;
     private String personalBest;
-
 
 
     public Competitionswimmer(int age, String ageType, String name, String memberType,

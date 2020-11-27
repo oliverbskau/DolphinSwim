@@ -8,17 +8,18 @@ import java.util.Scanner;
 public class SwimmingRecords {
 
     Register register = new Register();
-    Competitionswimmer competitionswimmer = new Competitionswimmer();
 
-    public void registerBestSwimtime() {
+    public void registerBestSwimtime(ArrayList<Competitionswimmer> competitionswimmers) {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("\nHvem skal der registreres tid på? ");
         int choice = scanner.nextInt()-1;
 
-        Competitionswimmer competitionswimmer = register.searchForCompetitionswimmer(register.getCompetitionswimmers().get(choice).getName());
+        Competitionswimmer competitionswimmer = competitionswimmers.get(choice);
 
         LocalDateTime today = LocalDateTime.now();
         String swimTime;
+
+        scanner.nextLine();
 
         System.out.println("Hvad er tiden der skal registeres? (I sekunder)");
         swimTime = scanner.nextLine() + ", " + today;
