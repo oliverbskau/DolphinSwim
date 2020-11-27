@@ -42,6 +42,9 @@ public class Competitionswimmer extends Clubmember {
         this.personalBest = personalBest;
     }
 
+    public String printSwimRecords() {
+        return "/ Navn: " + getName() + "/ Svømmedisciplin: " + getSwimmingDisciplin() + "/ Personlig rekord: " + getPersonalBest();
+    }
 
     public String toString(){
        return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()

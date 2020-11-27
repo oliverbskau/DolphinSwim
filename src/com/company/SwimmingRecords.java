@@ -48,7 +48,7 @@ public class SwimmingRecords {
         int competitionMember = 0;
         for(int i = 0 ; i < competitionswimmers.size(); i++){
             competitionMember++;
-            System.out.println(competitionMember + ". " + competitionswimmers.get(i).toString());
+            System.out.println(competitionMember + ". " + competitionswimmers.get(i).printSwimRecords());
         }
     }
 
