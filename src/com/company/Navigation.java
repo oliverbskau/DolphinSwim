@@ -7,6 +7,7 @@ public class Navigation {
 
     //Navigation of program menu
     Register register = new Register();
+    SwimmingRecords swimmingRecords = new SwimmingRecords();
 
     /**
      * @author Oliver
@@ -34,7 +35,9 @@ public class Navigation {
                     break;
 
                 case 4: //Svømmetider
-
+                    register.printCompetitionswimmers();
+                    swimmingRecords.registerBestSwimtime();
+                    swimmingRecords.get5TopSwimmingTimes(register.competitionswimmers);
                     break;
 
                 case 5:

@@ -23,34 +23,6 @@ public class Competitionswimmer extends Clubmember {
         this.personalBest = personalBest;
     }
 
-    public void registerBestSwimtime(Competitionswimmer competitionMember) {
-        Scanner scanner = new Scanner(System.in);
-        LocalDateTime today = LocalDateTime.now();
-        String swimTime;
-
-        System.out.println("Hvad er tiden der skal registeres? (I sekunder)");
-        swimTime = scanner.nextLine() + ", " + today;
-        System.out.printf("\nTid registreret: %s",swimTime);
-        competitionMember.setPersonalBest(swimTime);
-    }
-
-    public String get5TopSwimmingTimes(ArrayList<Competitionswimmer> competitionswimmers) {
-        StringBuilder sb = new StringBuilder();
-        ArrayList<Double> top5 = new ArrayList<>();
-
-        for(int i = 0; i < competitionswimmers.size(); i++) {
-            String personalBest = competitionswimmers.get(i).getPersonalBest();
-            String time = personalBest.substring(0,personalBest.indexOf(','));
-            top5.add(Double.parseDouble(time));
-        }
-        Collections.sort(top5);
-
-        for (int i = 0; i < 5; i++) {
-            sb.append(String.format("%d. %.2f",i+1,top5.get(i)));
-        }
-        return sb.toString();
-    }
-
     public String getCompetitionsCompetedIn(Clubmember competitionMember) {
         StringBuilder sb = new StringBuilder();
         return sb.toString();

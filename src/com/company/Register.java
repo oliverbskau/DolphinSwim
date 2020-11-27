@@ -200,4 +200,7 @@ public class Register {
         return null;
     }
 
+    public ArrayList<Competitionswimmer> getCompetitionswimmers() {
+        return competitionswimmers;
+    }
 }
