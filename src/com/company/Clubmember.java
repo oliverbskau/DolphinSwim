@@ -24,6 +24,9 @@ public class Clubmember {
         setSubscriptionPrice(subscriptionPrice);
     }
 
+    public Clubmember(){
+    }
+
     //Get age of member
     public int getAge() {
         return age;

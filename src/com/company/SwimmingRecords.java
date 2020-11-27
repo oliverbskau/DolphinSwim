@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class SwimmingRecords {
 
     Register register = new Register();
+    Competitionswimmer competitionswimmer = new Competitionswimmer();
 
     public void registerBestSwimtime() {
         Scanner scanner = new Scanner(System.in);
@@ -42,10 +43,12 @@ public class SwimmingRecords {
         return sb.toString();
     }
 
-    /*
-    @Override
-    public String toString() {
-        return
+    public void printAll(ArrayList<Competitionswimmer> competitionswimmers){
+        int competitionMember = 0;
+        for(int i = 0 ; i < competitionswimmers.size(); i++){
+            competitionMember++;
+            System.out.println(competitionMember + ". " + competitionswimmers.get(i).toString());
+        }
     }
-    */
+
 }
