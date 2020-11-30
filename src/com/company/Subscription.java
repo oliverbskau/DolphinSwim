@@ -1,13 +1,33 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
- * @author
+ * @author Rasmus
  */
 public class Subscription {
 
-    boolean restance = false;
+    public void subscriptionNavigation(ArrayList<Clubmember> members) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nKontigenter");
+        System.out.println("------------------");
+        System.out.println("1. Tilbage til menu\n2. Se medlemmers status\n3. Se totalet af kontigenter");
+        System.out.print("Vælg: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1: //Tilbage til menu
+                break;
+            case 2: //Se medlemmer status
+                subscriptionStatus(members);
+                break;
+            case 3: //Se totalet af kontigenter
+                getTotalOfSubscriptions(members);
+                break;
+        }
+    }
 
     public double calculateTotalOfSubcriptions(int age, String memberType) {
 
@@ -37,6 +57,13 @@ public class Subscription {
         }
         System.out.println("\nDen totale indtjening er: " + total);
         return total;
+    }
+
+    public void subscriptionStatus(ArrayList<Clubmember> members){
+        for (int i =0; i < members.size(); i ++){
+            System.out.println("Navn: " + members.get(i).getName() + ", Betalt kontigent: "
+                    + members.get(i).getHasPayed() + ", Pris: " + members.get(i).getSubscriptionPrice() + " Kr.");
+        }
     }
 
 }

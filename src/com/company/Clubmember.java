@@ -13,9 +13,9 @@ public class Clubmember {
     private String name;
     private String memberType;
     private String competition;
+    private String hasPayed;
 
-
-    public Clubmember(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition){
+    public Clubmember(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition,String hasPayed){
         setAge(age);
         setAgeType(ageType);
         setName(name);
@@ -73,10 +73,17 @@ public class Clubmember {
     public void setSubscriptionPrice(double subscriptionPrice) {
         this.subscriptionPrice = subscriptionPrice;
     }
+    public String getHasPayed() {
+        return hasPayed;
+    }
+    public void setHasPayed(String hasPayed){
+        this.hasPayed = hasPayed;
+    }
 
     public String toString(){
         return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
-                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + "/ Svømmer status: " + getCompetition();
+                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + getSubscriptionPrice() +"/ Betalt kontigent: " + getHasPayed()
+                + "/ Svømmer status: " + getCompetition();
     }
 
 }

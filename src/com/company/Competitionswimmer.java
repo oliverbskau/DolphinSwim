@@ -10,10 +10,10 @@ public class Competitionswimmer extends Clubmember {
     private String personalBest;
 
     public Competitionswimmer(int age, String ageType, String name, String memberType,
-                              double subscriptionPrice, String competition , String swimmingDisciplin,
+                              double subscriptionPrice, String hasPayed, String competition , String swimmingDisciplin,
                               String personalBest)
     {
-        super(age, ageType, name, memberType, subscriptionPrice, competition);
+        super(age, ageType, name, memberType, subscriptionPrice, competition, hasPayed);
         this.swimmingDisciplin = swimmingDisciplin;
         this.personalBest = personalBest;
     }
@@ -47,7 +47,7 @@ public class Competitionswimmer extends Clubmember {
 
     public String toString(){
        return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
-                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + "/ Svømmer status: " + getCompetition()
-                + "/ Svømmmedeciplin: " + getSwimmingDisciplin();
+                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + getSubscriptionPrice() + "/ Betalt Kontigent" + getHasPayed()
+                + "/ Svømmer status: " + getCompetition() + "/ Svømmmedeciplin: " + getSwimmingDisciplin();
     }
 }

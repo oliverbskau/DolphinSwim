@@ -91,7 +91,7 @@ public class Register {
                 Clubmember clubmember = members.get(choice3);
                 clubmember.setCompetition("Konkurrence svømmer");
                 competitionswimmers.add(new Competitionswimmer(clubmember.getAge(),clubmember.getAgeType(),
-                        clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getCompetition(),swimDisciplin,"0"));
+                        clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getHasPayed(),clubmember.getCompetition(),swimDisciplin,"0"));
                 break;
             case 4:
                 int memberNumber4 = 0;
@@ -136,12 +136,6 @@ public class Register {
 
     //Tilføj nyt medlem
     public void registerAdd() {
-        //TESTPERSONER
-        competitionswimmers.add(new Competitionswimmer(20,"Ungdom","Rasmus","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","39.93 Sekunder," + LocalDate.now()));
-        competitionswimmers.add(new Competitionswimmer(29,"Ungdom","Phillip","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","25 Sekunder," + LocalDate.now()));
-        competitionswimmers.add(new Competitionswimmer(22,"Ungdom","Oliver","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","39.80 Sekunder," + LocalDate.now()));
-        competitionswimmers.add(new Competitionswimmer(21,"Ungdom","Jonas","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","60 Sekunder," + LocalDate.now()));
-        competitionswimmers.add(new Competitionswimmer(34,"Ungdom","Patrik","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","75.98 Sekunder," + LocalDate.now()));
 
         Scanner scanner = new Scanner(System.in);
         String ageType = "";
@@ -184,11 +178,11 @@ public class Register {
             System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
             System.out.print("Vælg: ");
             swimmingDisciplin = scanner.nextLine();
-            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, competition, swimmingDisciplin, "0"));
+            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice,"Nej", competition, swimmingDisciplin, "0"));
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
         }
-        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice, competition));
+        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,"Nej", competition));
     }
 
     public Clubmember searchForClubMember(String name) {
