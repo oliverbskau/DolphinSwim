@@ -24,7 +24,7 @@ public class Subscription {
                 subscriptionStatus(members);
                 break;
             case 3: //Se totalet af kontigenter
-                getTotalOfSubscriptions(members);
+                System.out.println("Totalet af alle kontigenter: " + getTotalOfSubscriptions(members));
                 break;
         }
     }
@@ -65,5 +65,4 @@ public class Subscription {
                     + members.get(i).getHasPayed() + ", Pris: " + members.get(i).getSubscriptionPrice() + " Kr.");
         }
     }
-
 }
