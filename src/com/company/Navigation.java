@@ -8,6 +8,7 @@ public class Navigation {
     //Navigation of program menu
     Register register = new Register();
     SwimmingRecords swimmingRecords = new SwimmingRecords();
+    Subscription subscription = new Subscription();
 
     /**
      * @author Oliver
@@ -32,8 +33,8 @@ public class Navigation {
                     register.printAll();
                     break;
 
-                case 3: //Kontigenter - lav sådan at man kan se alle personers pris for kontigenter og restance hvis der er nogle
-                    double total = new Subscription().getTotalOfSubscriptions(register.members);
+                case 3: //Kontigenter
+                    subscription.subscriptionNavigation(register.members);
                     break;
 
                 case 4: //Svømmetider
