@@ -178,11 +178,13 @@ public class Register {
             System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
             System.out.print("Vælg: ");
             swimmingDisciplin = scanner.nextLine();
-            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice,"Nej", competition, swimmingDisciplin, "0"));
+            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, "Nej", competition, swimmingDisciplin, "0"));
+            new FileProcess().writeToFile("Resources/Competitionswimmers.txt",competitionswimmers.get(competitionswimmers.size()-1).toString());
         }else if(choice2 == 2){
             competition = "ikke konkurrence svømmer";
         }
-        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,"Nej", competition));
+        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,competition,"Nej"));
+        new FileProcess().writeToFile("Resources/Members.txt",members.get(members.size()-1).toString());
     }
 
     //Search for a specifik member. this is used when there is a change for a member in an arraylist of members.

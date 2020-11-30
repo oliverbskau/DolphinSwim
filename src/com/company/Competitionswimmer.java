@@ -18,11 +18,6 @@ public class Competitionswimmer extends Clubmember {
         this.personalBest = personalBest;
     }
 
-    public Competitionswimmer(){
-
-    }
-
-
     public String getSwimmingDisciplin() {
         return swimmingDisciplin;
     }

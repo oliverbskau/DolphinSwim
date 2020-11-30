@@ -23,10 +23,7 @@ public class Clubmember {
         setMemberType(memberType);
         setCompetition(competition);
         setSubscriptionPrice(subscriptionPrice);
-    }
-
-    //Empty constructor
-    public Clubmember(){
+        setHasPayed(hasPayed);
     }
 
     //Get age of member
