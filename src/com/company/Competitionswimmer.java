@@ -9,7 +9,6 @@ public class Competitionswimmer extends Clubmember {
     private String swimmingDisciplin;
     private String personalBest;
 
-
     public Competitionswimmer(int age, String ageType, String name, String memberType,
                               double subscriptionPrice, String competition , String swimmingDisciplin,
                               String personalBest)

@@ -1,4 +1,5 @@
 package com.company;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,9 +13,9 @@ public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
     ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
-
     //Se konkurrencesvømmere og fjern dem igen
     public void printCompetitionswimmers(){
+
         int memberNumber = 0;
         for(int i = 0 ; i < competitionswimmers.size() ; i++) {
             System.out.println();
@@ -135,6 +136,13 @@ public class Register {
 
     //Tilføj nyt medlem
     public void registerAdd() {
+        //TESTPERSONER
+        competitionswimmers.add(new Competitionswimmer(20,"Ungdom","Rasmus","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","39.93 Sekunder," + LocalDate.now()));
+        competitionswimmers.add(new Competitionswimmer(29,"Ungdom","Phillip","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","25 Sekunder," + LocalDate.now()));
+        competitionswimmers.add(new Competitionswimmer(22,"Ungdom","Oliver","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","39.80 Sekunder," + LocalDate.now()));
+        competitionswimmers.add(new Competitionswimmer(21,"Ungdom","Jonas","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","60 Sekunder," + LocalDate.now()));
+        competitionswimmers.add(new Competitionswimmer(34,"Ungdom","Patrik","Aktiv",1600,"Konkurrencesvømmer","Rygcrawl","75.98 Sekunder," + LocalDate.now()));
+
         Scanner scanner = new Scanner(System.in);
         String ageType = "";
         String memberType = "";

@@ -1,49 +1,58 @@
 package com.company;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
 
 public class SwimmingRecords {
 
-    Register register = new Register();
+    public void recordsNavigation(ArrayList<Competitionswimmer> competitionswimmers) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nSvømmeresultater");
+        System.out.println("------------------");
+        printAll(competitionswimmers);
+        System.out.println("1. Tilbage til menu\n2. Tilføj record\n3. Se top 5 konkurrencesvømmere");
+        System.out.print("Vælg: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1: //Tilbage til menu
+                break;
+            case 2: //Tilføj rekord
+                registerBestSwimtime(competitionswimmers);
+                break;
+            case 3: //Se top 5
+                get5TopSwimmingTimes(competitionswimmers);
+                break;
+        }
+    }
 
     public void registerBestSwimtime(ArrayList<Competitionswimmer> competitionswimmers) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("\nSkriv tallet foran navnet på den der skal ændres tid på");
         System.out.print("Vælg: ");
         int choice = scanner.nextInt()-1;
 
         Competitionswimmer competitionswimmer = competitionswimmers.get(choice);
 
-        LocalDateTime today = LocalDateTime.now();
         String swimTime;
 
         scanner.nextLine();
 
         System.out.println("Hvad er tiden der skal registeres? (I sekunder)");
         System.out.print("Tid: ");
-        swimTime = scanner.nextLine() + " Sekunder, " + today;
+        swimTime = scanner.nextLine() + " Sekunder, " + LocalDate.now();
         System.out.printf("\nTid registreret: %s",swimTime);
         competitionswimmer.setPersonalBest(swimTime);
     }
 
-    public String get5TopSwimmingTimes(ArrayList<Competitionswimmer> competitionswimmers) {
-        StringBuilder sb = new StringBuilder();
-        ArrayList<Double> top5 = new ArrayList<>();
+    public void get5TopSwimmingTimes(ArrayList<Competitionswimmer> competitionswimmers) {
+        Collections.sort(competitionswimmers, Comparator.comparing(Competitionswimmer::getPersonalBest));
 
-        for(int i = 0; i < competitionswimmers.size(); i++) {
-            String personalBest = competitionswimmers.get(i).getPersonalBest();
-            String time = personalBest.substring(0,personalBest.indexOf(" Sekunder,"));
-            top5.add(Double.parseDouble(time));
+        for (int i = 0; i < competitionswimmers.size(); i++) {
+            System.out.println(competitionswimmers.get(i).getName() + ", " + competitionswimmers.get(i).getPersonalBest());
         }
-        Collections.sort(top5);
-
-        for (int i = 0; i < 5; i++) {
-            sb.append(String.format("%d. %.2f",i+1,top5.get(i)));
-        }
-        return sb.toString();
     }
 
     public void printAll(ArrayList<Competitionswimmer> competitionswimmers){

@@ -37,8 +37,7 @@ public class Navigation {
                     break;
 
                 case 4: //Svømmetider
-                    swimmingRecords.printAll(register.competitionswimmers);
-                    swimmingRecords.registerBestSwimtime(register.competitionswimmers);
+                    swimmingRecords.recordsNavigation(register.getCompetitionswimmers());
                     break;
 
                 case 5:
