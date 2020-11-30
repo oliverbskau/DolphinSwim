@@ -5,6 +5,8 @@ import java.util.*;
 
 public class SwimmingRecords {
 
+    //Shows the competitionswimmers and their swimming records.
+    //Here you can chose to set a new record for a swimmer, or see the top 5 best swimming records
     public void recordsNavigation(ArrayList<Competitionswimmer> competitionswimmers) {
         Scanner scanner = new Scanner(System.in);
 
@@ -27,6 +29,7 @@ public class SwimmingRecords {
         }
     }
 
+    //register a new record
     public void registerBestSwimtime(ArrayList<Competitionswimmer> competitionswimmers) {
         Scanner scanner = new Scanner(System.in);
 
@@ -47,6 +50,7 @@ public class SwimmingRecords {
         competitionswimmer.setPersonalBest(swimTime);
     }
 
+    //See the top 5 swimmming records
     public void get5TopSwimmingTimes(ArrayList<Competitionswimmer> competitionswimmers) {
         Collections.sort(competitionswimmers, Comparator.comparing(Competitionswimmer::getPersonalBest));
 
@@ -55,6 +59,7 @@ public class SwimmingRecords {
         }
     }
 
+    //See the competitionswimmers, and their records
     public void printAll(ArrayList<Competitionswimmer> competitionswimmers){
         int competitionMember = 0;
         System.out.println();

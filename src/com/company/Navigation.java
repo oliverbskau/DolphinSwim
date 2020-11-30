@@ -14,6 +14,8 @@ public class Navigation {
      * @author Oliver
      * @param menu
      */
+
+    //method to navigate in menu, using a switch
     public void menuNavigation(Menu menu){
 
         boolean navigator = true;

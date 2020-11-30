@@ -13,7 +13,7 @@ public class Register {
     ArrayList<Clubmember> members = new ArrayList<>();
     ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
-    //Se konkurrencesvømmere og fjern dem igen
+    //Prints the competition members, and gives you the choice to remove them again.
     public void printCompetitionswimmers(){
 
         int memberNumber = 0;
@@ -49,8 +49,8 @@ public class Register {
         }
     }
 
-    //Se medlemmer, opret medlemmer fra medlemsoplysningermenuen eller tilføj medlem til konkurrence svømmere
-    //Fjern medlemmer
+    //See members, assign members directly from member informations. Assign a member to competitionmembers. Or remove a member
+    //Choices defined above, are chosen with a switch.
     public void printAll(){
         int memberNumber = 0;
         for(int i = 0 ; i < members.size() ; i++) {
@@ -134,7 +134,7 @@ public class Register {
         }
     }
 
-    //Tilføj nyt medlem
+    //Assign a new member and choose attributes with a Scanner class
     public void registerAdd() {
 
         Scanner scanner = new Scanner(System.in);
@@ -185,6 +185,8 @@ public class Register {
         members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,"Nej", competition));
     }
 
+    //Search for a specifik member. this is used when there is a change for a member in an arraylist of members.
+    //then the changes has to be the same for the same member in other arraylists
     public Clubmember searchForClubMember(String name) {
         for (int i = 0; i < members.size(); i++) {
             if(members.get(i).getName().equals(name)){
@@ -193,6 +195,8 @@ public class Register {
         }
         return null;
     }
+    //Search for a specifik competitionmember. this is used when there is a change for a member in an arraylist of members.
+    //then the changes has to be the same for the same member in other arraylists
     public Competitionswimmer searchForCompetitionswimmer(String name) {
         for (int i = 0; i < competitionswimmers.size(); i++) {
             if(competitionswimmers.get(i).getName().equals(name)){

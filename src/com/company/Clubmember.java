@@ -15,6 +15,7 @@ public class Clubmember {
     private String competition;
     private String hasPayed;
 
+    //Create the member. Makes the member an actual person with attributes.
     public Clubmember(int age, String ageType, String name, String memberType, double subscriptionPrice, String competition,String hasPayed){
         setAge(age);
         setAgeType(ageType);
@@ -24,6 +25,7 @@ public class Clubmember {
         setSubscriptionPrice(subscriptionPrice);
     }
 
+    //Empty constructor
     public Clubmember(){
     }
 
@@ -66,13 +68,16 @@ public class Clubmember {
     public void setCompetition(String competition){
         this.competition = competition;
     }
+
+    //Get the price according to what kind of agegroup a member is. Is defined in Subsciption class
     public double getSubscriptionPrice() {
         return subscriptionPrice;
     }
-
     public void setSubscriptionPrice(double subscriptionPrice) {
         this.subscriptionPrice = subscriptionPrice;
     }
+
+    //Creates a string to be defined as paid, or not.
     public String getHasPayed() {
         return hasPayed;
     }
@@ -80,6 +85,7 @@ public class Clubmember {
         this.hasPayed = hasPayed;
     }
 
+    //A method that prints the attributes for a member
     public String toString(){
         return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
                 + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + getSubscriptionPrice() +"/ Betalt kontigent: " + getHasPayed()

@@ -22,10 +22,7 @@ public class Competitionswimmer extends Clubmember {
 
     }
 
-    public String getCompetitionsCompetedIn(Clubmember competitionMember) {
-        StringBuilder sb = new StringBuilder();
-        return sb.toString();
-    }
+
     public String getSwimmingDisciplin() {
         return swimmingDisciplin;
     }

@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class Subscription {
 
+    //navigate in the class with a switch
     public void subscriptionNavigation(ArrayList<Clubmember> members) {
         Scanner scanner = new Scanner(System.in);
 
@@ -29,6 +30,7 @@ public class Subscription {
         }
     }
 
+    //Defines what the monthly subscribssionprice is according to the agegroup you belong
     public double calculateTotalOfSubcriptions(int age, String memberType) {
 
         double totalOfPrice = 0;
@@ -48,6 +50,7 @@ public class Subscription {
         return totalOfPrice;
     }
 
+    //Get the total price of subcriptions
     public double getTotalOfSubscriptions(ArrayList<Clubmember> members) {
 
         double total = 0;
