@@ -66,9 +66,9 @@ public class Register {
                 System.out.print("\nVælg: ");
                 int choice3 = scanner.nextInt()-1;
                 if (choice3 < competitionswimmers.size()||choice3 > competitionswimmers.size()){
-                    System.out.print("\nTallet du har indtastet stemmer ikke overens med eksisterende medlem.\n" +
-                            "Prøv igen: ");
-                    choice3 = scanner.nextInt()-1;
+                    System.out.println("Tallet du har indtastet stemmer ikke overens med eksisterende medlem.\n" +
+                            "Du er tilbage i hovedmenu");
+                    break;
                 }
                 System.out.print("\nHvilke svømmedisciplin skal personen tilføjes til?");
                 scanner.nextLine();
