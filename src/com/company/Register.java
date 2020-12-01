@@ -26,11 +26,7 @@ public class Register {
                 break;
             case 2:
                 int memberNumber = 0;
-                for(int i = 0 ; i < competitionswimmers.size() ; i++) {
-                    System.out.println();
-                    memberNumber++;
-                    System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
-                }
+                printAllOfList(competitionswimmers);
                 System.out.println("\nFjern medlem fra kokurrence svømmere ved at skrive tallet foran navnet" +
                                 " og tryk enter");
                 System.out.print("Vælg: ");
@@ -64,11 +60,7 @@ public class Register {
                 int memberNumber2 = 0;
                 System.out.println("Konkurrence svømmere");
                 System.out.println("--------------------");
-                for(int i = 0 ; i < members.size() ; i++) {
-                    System.out.println();
-                    memberNumber2++;
-                    System.out.println(memberNumber2 + ". " + members.get(i).toString());
-                }
+                printAllOfList(members);
                 System.out.print("\nTilføj medlem til kokurrence svømmere ved at skrive tallet foran navnet" +
                         " og tryk enter");
                 System.out.print("\nVælg: ");
@@ -85,11 +77,7 @@ public class Register {
                 break;
             case 4: //Fjern et medlem
                 int memberNumber4 = 0;
-                for(int i = 0 ; i < members.size() ; i++) {
-                    System.out.println();
-                    memberNumber4++;
-                    System.out.println(memberNumber4 + ". " + members.get(i).toString());
-                }
+                printAllOfList(members);
                 System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes og tryk enter");
                 System.out.print("Vælg: ");
                 int removeMember = scanner.nextInt()-1;
@@ -97,11 +85,7 @@ public class Register {
                 break;
             case 5: //Skift medlemsstatus
                 int memberNumber5 = 0;
-                for(int i = 0 ; i < members.size() ; i++) {
-                    System.out.println();
-                    memberNumber5++;
-                    System.out.println(memberNumber5 + ". " + members.get(i).toString());
-                }
+                printAllOfList(members);
                 System.out.println("\nSkriv tallet foran navnet på den person som skal have ændret status" +
                         " og tryk enter");
                 System.out.print("Vælg: ");
@@ -127,55 +111,65 @@ public class Register {
 
     //Assign a new member and choose attributes with a Scanner class
     public void addMembers() {
-
         Scanner scanner = new Scanner(System.in);
-        String ageType = "";
-        String memberType = "";
-        String competition = "";
-        String swimmingDisciplin = "";
-        double subscriptionPrice;
 
-        System.out.print("\nNavn: ");
-        String name = scanner.nextLine();
-        System.out.print("\nAlder: ");
-        int age = scanner.nextInt();
-        if(age < 18){
-            ageType = "Ungdom";
-        }else if(age > 18 && age < 60 ){
-            ageType = "Senior";
-        }else if(age > 60){
-            ageType = "SeniorPlus";
-        }
-        System.out.println("\nAktivt eller passivt medlemskab: ");
-        System.out.println("1 = Passivt");
-        System.out.println("2 = Aktivt");
-        System.out.print("Vælg: ");
-        int choice = scanner.nextInt();
-        if(choice == 1){
-            memberType = "Passiv";
-        }else if(choice == 2){
-            memberType = "Aktiv";
-        }
-        System.out.println("Konkurrence svømmer?");
-        System.out.println("1 = ja");
-        System.out.println("2 = nej");
-        System.out.print("Vælg: ");
-        int choice2 = scanner.nextInt();
-        subscriptionPrice = new Subscription().calculateTotalOfSubcriptions(age,memberType);
-        if(choice2 == 1){
-            competition = "Konkurrence svømmer";
-            System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+        System.out.print("\n1. Fortsæt\n2. Fortryd\nVælg: ");
+        int regret = scanner.nextInt();
+
+        switch (regret) {
+            case 1:
+            String ageType = "";
+            String memberType = "";
+            String competition = "";
+            String swimmingDisciplin = "";
+            double subscriptionPrice;
+
             scanner.nextLine();
-            System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
+            System.out.print("\nNavn: ");
+            String name = scanner.nextLine();
+            System.out.print("\nAlder: ");
+            int age = scanner.nextInt();
+            if (age < 18) {
+                ageType = "Ungdom";
+            } else if (age > 18 && age < 60) {
+                ageType = "Senior";
+            } else if (age > 60) {
+                ageType = "SeniorPlus";
+            }
+            System.out.println("\nAktivt eller passivt medlemskab: ");
+            System.out.println("1 = Passivt");
+            System.out.println("2 = Aktivt");
             System.out.print("Vælg: ");
-            swimmingDisciplin = scanner.nextLine();
-            competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, "Nej", competition, swimmingDisciplin, "0"));
-            new FileProcess().writeToFile("Resources/Competitionswimmers.txt",competitionswimmers.get(competitionswimmers.size()-1).toString());
-        }else if(choice2 == 2){
-            competition = "ikke konkurrence svømmer";
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                memberType = "Passiv";
+            } else if (choice == 2) {
+                memberType = "Aktiv";
+            }
+            System.out.println("Konkurrence svømmer?");
+            System.out.println("1 = ja");
+            System.out.println("2 = nej");
+            System.out.print("Vælg: ");
+            int choice2 = scanner.nextInt();
+            subscriptionPrice = new Subscription().calculateTotalOfSubcriptions(age, memberType);
+            if (choice2 == 1) {
+                competition = "Konkurrence svømmer";
+                System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+                scanner.nextLine();
+                System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
+                System.out.print("Vælg: ");
+                swimmingDisciplin = scanner.nextLine();
+                competitionswimmers.add(new Competitionswimmer(age, ageType, name, memberType, subscriptionPrice, "Nej", competition, swimmingDisciplin, "0"));
+                new FileProcess().writeToFile("Resources/Competitionswimmers.txt", competitionswimmers.get(competitionswimmers.size() - 1).toString());
+            } else if (choice2 == 2) {
+                competition = "ikke konkurrence svømmer";
+            }
+            members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice, competition, "Nej"));
+            new FileProcess().writeToFile("Resources/Members.txt", members.get(members.size() - 1).toString());
+            break;
+            case 2:
+                break;
         }
-        members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice,competition,"Nej"));
-        new FileProcess().writeToFile("Resources/Members.txt",members.get(members.size()-1).toString());
     }
 
     //Search for a specifik member. this is used when there is a change for a member in an arraylist of members.
