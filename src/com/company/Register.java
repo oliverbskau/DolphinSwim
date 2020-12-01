@@ -65,7 +65,14 @@ public class Register {
                         " og tryk enter");
                 System.out.print("\nVælg: ");
                 int choice3 = scanner.nextInt()-1;
-                System.out.print("\nHvilke svømmedisciplin ønsker du at være i?");
+                //if you chose index out of bounce, you go back to the menu
+                if (choice3 < competitionswimmers.size()||choice3 > competitionswimmers.size()){
+                    System.out.println("Tallet du har indtastet stemmer ikke overens med eksisterende medlem.\n" +
+                            "Du er tilbage i hovedmenu.");
+                    break;
+                }
+                //if you chose the correct index, the process continues
+                System.out.print("\nHvilke svømmedisciplin skal personen tilføjes til?");
                 scanner.nextLine();
                 System.out.println("\n- Butterfly\n- Crawl\n- Rygcrawl\n- Brystsvømning");
                 System.out.print("Vælg: ");
