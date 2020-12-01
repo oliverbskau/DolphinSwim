@@ -1,11 +1,8 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileWriter;   // Import the FileWriter class
-import java.io.IOException;  // Import the IOException class to handle errors
 
 public class FileProcess {
 
@@ -27,13 +24,13 @@ public class FileProcess {
         try {
             FileWriter myWriter = new FileWriter(path);
             myWriter.write(text);
+            myWriter.write("\n");
             myWriter.close();
-        } catch (IOException e) {
-            System.err.println("An error occurred.");
-            e.printStackTrace();
-        }
+        } catch(IOException e){
+                System.err.println("An error occurred.");
+                e.printStackTrace();
+            }
     }
-
     public void loadMembers(String path, ArrayList arrayList) {
         String currentMemberFromFile;
         String[] variables;
@@ -52,7 +49,6 @@ public class FileProcess {
                     String currentVar = variables[i];
                     if(!currentVar.equals("")) {
                         variables[i] = currentVar.substring(currentVar.indexOf(": ")+2);
-                        System.out.print(variables[i] + ", ");
                     }
                 }
 
