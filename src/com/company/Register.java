@@ -1,5 +1,4 @@
 package com.company;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,28 +13,23 @@ public class Register {
     ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
     //Prints the competition members, and gives you the choice to remove them again.
-    public void printCompetitionswimmers(){
+    public void competitionsSwimmers(){
+        printAllOfList(competitionswimmers);
 
-        int memberNumber = 0;
-        for(int i = 0 ; i < competitionswimmers.size() ; i++) {
-            System.out.println();
-            memberNumber++;
-            System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
-        }
         System.out.println("\n1. Tilbage til menuen\n2. Fjern medlem fra konkurrence svømmere");
         System.out.print("Vælg: ");
         Scanner scanner = new Scanner(System.in);
-        int choice4;
-        choice4 = scanner.nextInt();
-        switch(choice4){
+        int choice;
+        choice = scanner.nextInt();
+        switch(choice){
             case 1:
                 break;
             case 2:
-                int memberNumber3 = 0;
+                int memberNumber = 0;
                 for(int i = 0 ; i < competitionswimmers.size() ; i++) {
                     System.out.println();
-                    memberNumber3++;
-                    System.out.println(memberNumber3 + ". " + competitionswimmers.get(i).toString());
+                    memberNumber++;
+                    System.out.println(memberNumber + ". " + competitionswimmers.get(i).toString());
                 }
                 System.out.println("\nFjern medlem fra kokurrence svømmere ved at skrive tallet foran navnet" +
                                 " og tryk enter");
@@ -52,12 +46,8 @@ public class Register {
     //See members, assign members directly from member informations. Assign a member to competitionmembers. Or remove a member
     //Choices defined above, are chosen with a switch.
     public void printAll(){
-        int memberNumber = 0;
-        for(int i = 0 ; i < members.size() ; i++) {
-            System.out.println();
-            memberNumber++;
-            System.out.println(memberNumber + ". " + members.get(i).toString());
-        }
+        printAllOfList(members);
+
         System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere" +
                 "\n4. Fjern medlem\n5. Skift medlem status");
         System.out.print("Vælg: ");
@@ -65,12 +55,12 @@ public class Register {
         int choice = scanner.nextInt();
 
         switch(choice){
-            case 1:
+            case 1: //Tilbage til menu
                 break;
-            case 2:
-                registerAdd();
+            case 2: //Tilføj medlemmer
+                addMembers();
                 break;
-            case 3:
+            case 3: //Tilføj medlemmer til konkurrencesvømmere
                 int memberNumber2 = 0;
                 System.out.println("Konkurrence svømmere");
                 System.out.println("--------------------");
@@ -93,7 +83,7 @@ public class Register {
                 competitionswimmers.add(new Competitionswimmer(clubmember.getAge(),clubmember.getAgeType(),
                         clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getHasPayed(),clubmember.getCompetition(),swimDisciplin,"0"));
                 break;
-            case 4:
+            case 4: //Fjern et medlem
                 int memberNumber4 = 0;
                 for(int i = 0 ; i < members.size() ; i++) {
                     System.out.println();
@@ -105,7 +95,7 @@ public class Register {
                 int removeMember = scanner.nextInt()-1;
                 members.remove(removeMember);
                 break;
-            case 5:
+            case 5: //Skift medlemsstatus
                 int memberNumber5 = 0;
                 for(int i = 0 ; i < members.size() ; i++) {
                     System.out.println();
@@ -117,6 +107,7 @@ public class Register {
                 System.out.print("Vælg: ");
                 int currentMemberIndex = scanner.nextInt()-1;
                 Clubmember memberStatus = searchForClubMember(members.get(currentMemberIndex).getName());
+
                 if (memberStatus.getMemberType().equals("Passiv")){
                     memberStatus.setMemberType("Aktiv");
                     if(competitionswimmers.size()>0)
@@ -135,7 +126,7 @@ public class Register {
     }
 
     //Assign a new member and choose attributes with a Scanner class
-    public void registerAdd() {
+    public void addMembers() {
 
         Scanner scanner = new Scanner(System.in);
         String ageType = "";
@@ -197,6 +188,7 @@ public class Register {
         }
         return null;
     }
+
     //Search for a specifik competitionmember. this is used when there is a change for a member in an arraylist of members.
     //then the changes has to be the same for the same member in other arraylists
     public Competitionswimmer searchForCompetitionswimmer(String name) {
@@ -206,6 +198,16 @@ public class Register {
             }
         }
         return null;
+    }
+
+    //Method to print all members of Competitionswimmers
+    public void printAllOfList(ArrayList arrayList) {
+        int memberNumber = 0;
+        for(int i = 0 ; i < arrayList.size() ; i++) {
+            System.out.println();
+            memberNumber++;
+            System.out.println(memberNumber + ". " + arrayList.get(i).toString());
+        }
     }
 
     public ArrayList<Competitionswimmer> getCompetitionswimmers() {

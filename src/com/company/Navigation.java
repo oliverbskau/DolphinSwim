@@ -28,7 +28,7 @@ public class Navigation {
                 switch(choice){
 
                 case 1:
-                    register.registerAdd();
+                    register.addMembers();
                     break;
 
                 case 2:
@@ -43,8 +43,8 @@ public class Navigation {
                     swimmingRecords.recordsNavigation(register.getCompetitionswimmers());
                     break;
 
-                case 5:
-                    register.printCompetitionswimmers();
+                case 5: //Konkurrencesvømmere
+                    register.competitionsSwimmers();
                     break;
 
                 case 6:
