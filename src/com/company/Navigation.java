@@ -10,6 +10,8 @@ public class Navigation {
     Register register = new Register();
     SwimmingRecords swimmingRecords = new SwimmingRecords();
     Subscription subscription = new Subscription();
+    FileProcess fileProcess = new FileProcess();
+
 
     /**
      * @author Oliver
@@ -19,6 +21,8 @@ public class Navigation {
     //method to navigate in menu, using a switch
     public void menuNavigation(Menu menu){
 
+        fileProcess.loadMembers("Resources/Members.txt", register.members);
+        fileProcess.loadMembers("Resources/Competitionswimmers.txt", register.competitionswimmers);
         boolean navigator = true;
 
         while(navigator){
