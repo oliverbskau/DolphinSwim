@@ -39,7 +39,8 @@ public class Competitionswimmer extends Clubmember {
 
     public String toString(){
        return "/ Navn: " + getName() + "/ Alder: " + getAge() + "/ Aldersgruppe: " + getAgeType()
-                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + getSubscriptionPrice() + "/ Betalt Kontigent: " + getHasPayed()
-                + "/ Svømmer status: " + getCompetition() + "/ Svømmmedeciplin: " + getSwimmingDisciplin();
+                + "/ Medlem status: " + getMemberType() + "/ Kontigent: " + getSubscriptionPrice() + "/ Betalt Kontigent: "
+                + getHasPayed() + "/ Svømmer status: " + getCompetition() + "/ Svømmmedisciplin: "
+                + getSwimmingDisciplin() +  "/ Personlige rekord: " + getPersonalBest();
     }
 }

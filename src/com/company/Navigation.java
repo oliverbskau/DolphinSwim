@@ -1,4 +1,5 @@
 package com.company;
+
 /**
  * @author Oliver Brücker Skau
  */
@@ -27,7 +28,7 @@ public class Navigation {
 
                 switch(choice){
 
-                case 1:
+                case 1: //tilføj medlem
                     register.addMembers();
                     break;
 
@@ -47,7 +48,7 @@ public class Navigation {
                     register.competitionsSwimmers();
                     break;
 
-                case 6:
+                case 6: //afslut program
                     System.exit(0);
                     break;
            }

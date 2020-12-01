@@ -34,8 +34,9 @@ public class FileProcess {
         }
     }
 
-    public void loadClubMembers(String path, ArrayList<Clubmember> arrayList) {
+    public void loadMembers(String path, ArrayList arrayList) {
         String currentMemberFromFile;
+        String[] variables;
 
         File file = new File(path);
         Scanner scanner;
@@ -45,6 +46,41 @@ public class FileProcess {
 
             while(scanner.hasNextLine()) {
                 currentMemberFromFile = scanner.nextLine();
+                variables = currentMemberFromFile.split("/");
+
+                for (int i = 0; i < variables.length; i++) {
+                    String currentVar = variables[i];
+                    if(!currentVar.equals("")) {
+                        variables[i] = currentVar.substring(currentVar.indexOf(": ")+2);
+                        System.out.print(variables[i] + ", ");
+                    }
+                }
+
+                if(path.equals("Resources/Members.txt")){
+                    arrayList.add(new Clubmember(
+                            //Alder,Aldersgruppe,Navn,Medlem status, Konkurrencesvømmer (Ja/Nej),
+                            // Kontigentpris,Betalt kontigent
+                            Integer.parseInt(variables[2]),
+                            variables[3],
+                            variables[1],
+                            variables[4],
+                            Double.parseDouble(variables[5]),
+                            variables[7],
+                            variables[6]));
+                } else if(path.equals("Resources/Competitionswimmers.txt")) {
+                    //Alder,Aldersgruppe,Navn,Medlem status, Konkurrencesvømmer (Ja/Nej),
+                    // Kontigentpris,Betalt kontigent,svømmerdisciplin,Personlige rekord
+                    arrayList.add(new Competitionswimmer(
+                            Integer.parseInt(variables[2]),
+                            variables[3],
+                            variables[1],
+                            variables[4],
+                            Double.parseDouble(variables[5]),
+                            variables[7],
+                            variables[6],
+                            variables[8],
+                            variables[9]));
+                }
             }
         } catch (FileNotFoundException e) {
             System.err.println("Fil ikke fundet, check om sti'en findes");
@@ -52,9 +88,3 @@ public class FileProcess {
         }
     }
 }
-
-
-
-
-
-
