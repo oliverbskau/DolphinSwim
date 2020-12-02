@@ -25,7 +25,7 @@ public class FileProcess {
     public void writeToFile(String path, String text) {
 
         try {
-            FileWriter myWriter = new FileWriter(path);
+            FileWriter myWriter = new FileWriter(path, true);//TO BE CONTINUED
             myWriter.write(text);
             myWriter.close();
         } catch (IOException e) {
