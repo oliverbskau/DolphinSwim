@@ -12,7 +12,6 @@ public class Navigation {
     Subscription subscription = new Subscription();
     FileProcess fileProcess = new FileProcess();
 
-
     /**
      * @author Oliver
      * @param menu
@@ -23,6 +22,7 @@ public class Navigation {
 
         fileProcess.loadMembers("Resources/Members.txt", register.members);
         fileProcess.loadMembers("Resources/Competitionswimmers.txt", register.competitionswimmers);
+
         boolean navigator = true;
 
         while(navigator){
@@ -37,7 +37,7 @@ public class Navigation {
                     break;
 
                 case 2:
-                    register.printAll();
+                    register.membershipOptions();
                     break;
 
                 case 3: //Kontigenter

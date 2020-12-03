@@ -14,7 +14,7 @@ public class Subscription {
 
         System.out.println("\nKontigenter");
         System.out.println("------------------");
-        System.out.println("1. Tilbage til menu\n2. Se medlemmers status\n3. Se totalet af kontigenter");
+        System.out.println("1. Tilbage til menu\n2. Se medlemmers status\n3. Se totalet af kontigenter\n4. Betal kontigent");
         System.out.print("Vælg: ");
         int choice = scanner.nextInt();
 
@@ -26,6 +26,12 @@ public class Subscription {
                 break;
             case 3: //Se totalet af kontigenter
                 System.out.println("Totalet af alle kontigenter: " + getTotalOfSubscriptions(members));
+                break;
+            case 4: //Betal kontigent
+                paySubscription(members);
+                break;
+            default: //Fejl i indtastning
+                System.err.println("Fejl! du indtastede ikke det korrekte tal, vender tilbage til menu");
                 break;
         }
     }
@@ -60,6 +66,20 @@ public class Subscription {
         }
         System.out.println("\nDen totale indtjening er: " + total);
         return total;
+    }
+
+    //Sets the hasPayed variable to yes, if a member has payed
+    public void paySubscription(ArrayList<Clubmember> members) {
+        Scanner scanner = new Scanner(System.in);
+
+        new Register().printAllOfList(members);
+        System.out.println("\nSkriv tallet foran navnet på den person som skal betale kontigent og tryk enter");
+        System.out.print("Vælg: ");
+        int choice = scanner.nextInt()-1;
+
+        members.get(choice).setHasPayed("Ja");
+
+
     }
 
     public void subscriptionStatus(ArrayList<Clubmember> members){

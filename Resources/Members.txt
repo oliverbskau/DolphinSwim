@@ -1,5 +1,3 @@
-/ Navn: Phillip/ Alder: 29/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
-/ Navn: Rasmus/ Alder: 20/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: Konkurrence svømmer
-/ Navn: Patrick/ Alder: 35/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: Konkurrence svømmer
-/ Navn: Karl/ Alder: 54/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
-/ Navn: Darth Vader/ Alder: 43/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
+/ Navn: Jonas/ Alder: 21/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
+/ Navn: Oliver/ Alder: 22/ Aldersgruppe: Senior/ Medlem status: Passiv/ Kontigent: 500.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
+/ Navn: Patrick/ Alder: 19/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: Konkurrence svømmer

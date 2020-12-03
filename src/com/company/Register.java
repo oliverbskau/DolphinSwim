@@ -1,5 +1,4 @@
 package com.company;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -42,7 +41,7 @@ public class Register {
 
     //See members, assign members directly from member informations. Assign a member to competitionmembers. Or remove a member
     //Choices defined above, are chosen with a switch.
-    public void printAll(){
+    public void membershipOptions(){
         printAllOfList(members);
 
         System.out.println("\n1. Tilbage til menu\n2. Tilføj medlem\n3. Tilføj medlem til konkurrence svømmere" +

@@ -34,26 +34,34 @@ public class FileProcess {
 
     public void removeFromFile(String path, String memberToBeDeleted){
         File file = new File(path);
-        File tempFile = new File("Resources/TempFile");
         String currentLine;
 
         try {
+
+            File tempFile = new File(file.getAbsolutePath() + ".tmp");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true));
 
             while((currentLine = reader.readLine()) != null) {
-                if(currentLine.equals(memberToBeDeleted)) {
-                    continue;
+                if(!currentLine.equals(memberToBeDeleted)) {
+                    writer.write(currentLine);
+                    writer.write("\n");
+                    writer.flush();
                 }
-                writer.write(currentLine);
-                writer.write("\n");
+
             }
-            writer.flush();
+
             writer.close();
             reader.close();
 
-            file.delete();
-            tempFile.renameTo(file);
+            if (!file.delete()) {
+                System.out.println("Kunne ikke slette filen, Fileprocess.java linje 56");
+                return;
+            }
+
+            if (!tempFile.renameTo(file)) {
+                System.out.println("Kunne ikke omnavngive filen, Fileprocess.java linje 61");
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -62,6 +70,7 @@ public class FileProcess {
             e.printStackTrace();
 
         }
+
     }
 
     public void loadMembers(String path, ArrayList arrayList) {
