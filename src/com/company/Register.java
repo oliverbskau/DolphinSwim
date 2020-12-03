@@ -89,8 +89,8 @@ public class Register {
                 System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes og tryk enter");
                 System.out.print("Vælg: ");
                 int removeMember = scanner.nextInt()-1;
+                new FileProcess().removeFromFile("Resources/Members.txt",members.get(removeMember).toString());
                 members.remove(removeMember);
-                new FileProcess().removeFromFile("Resources/Members.txt",members.get(removeMember).getName());
                 break;
             case 5: //Skift medlemsstatus
                 int memberNumber5 = 0;

@@ -34,32 +34,34 @@ public class FileProcess {
 
     public void removeFromFile(String path, String memberToBeDeleted){
         File file = new File(path);
-        File tempFile = new File("tempFile.txt");
+        File tempFile = new File("Resources/TempFile");
         String currentLine;
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true));
 
             while((currentLine = reader.readLine()) != null) {
                 if(currentLine.equals(memberToBeDeleted)) {
-                    writer.write(currentLine);
                     continue;
                 }
+                writer.write(currentLine);
+                writer.write("\n");
             }
+            writer.flush();
             writer.close();
             reader.close();
 
+            file.delete();
             tempFile.renameTo(file);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
 
         } catch (IOException e) {
-
             e.printStackTrace();
-        }
 
+        }
     }
 
     public void loadMembers(String path, ArrayList arrayList) {
