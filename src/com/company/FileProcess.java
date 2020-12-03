@@ -31,6 +31,11 @@ public class FileProcess {
                 e.printStackTrace();
             }
     }
+
+    public void removeFromFile(String path, String memberToBeDeleted){
+
+    }
+
     public void loadMembers(String path, ArrayList arrayList) {
         String currentMemberFromFile;
         String[] variables;
@@ -56,26 +61,26 @@ public class FileProcess {
                     arrayList.add(new Clubmember(
                             //Alder,Aldersgruppe,Navn,Medlem status, Konkurrencesvømmer (Ja/Nej),
                             // Kontigentpris,Betalt kontigent
-                            Integer.parseInt(variables[2]),
-                            variables[3],
-                            variables[1],
-                            variables[4],
-                            Double.parseDouble(variables[5]),
-                            variables[7],
-                            variables[6]));
+                            Integer.parseInt(variables[2]),//Alder
+                            variables[3],//Aldersgruppe
+                            variables[1],//Navn
+                            variables[4],//Medlem status
+                            Double.parseDouble(variables[5]),//Konkurencesvømmer(ja/nej)
+                            variables[7],//Kontantpris
+                            variables[6]));//Betalt kontingent
                 } else if(path.equals("Resources/Competitionswimmers.txt")) {
                     //Alder,Aldersgruppe,Navn,Medlem status, Konkurrencesvømmer (Ja/Nej),
-                    // Kontigentpris,Betalt kontigent,svømmerdisciplin,Personlige rekord
+                    // Kontigentpris,Betalt kontigent,svømmedisciplin,Personlige rekord
                     arrayList.add(new Competitionswimmer(
-                            Integer.parseInt(variables[2]),
-                            variables[3],
-                            variables[1],
-                            variables[4],
-                            Double.parseDouble(variables[5]),
-                            variables[7],
-                            variables[6],
-                            variables[8],
-                            variables[9]));
+                            Integer.parseInt(variables[2]),//Alder
+                            variables[3],//Aldersgruppe
+                            variables[1],//Navn
+                            variables[4],//Medlem Status
+                            Double.parseDouble(variables[5]),//Kontigentpris
+                            variables[7],//Konkurencesvømmer (ja/nej)
+                            variables[6],//btalt kontigent
+                            variables[8],//Svømmedisciplin
+                            variables[9]));//Personlig record
                 }
             }
         } catch (FileNotFoundException e) {
