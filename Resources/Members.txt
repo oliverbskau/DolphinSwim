@@ -1,0 +1,3 @@
+/ Navn: Phillip/ Alder: 29/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: ikke konkurrence svømmer
+/ Navn: Rasmus/ Alder: 20/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: Konkurrence svømmer
+/ Navn: Patrick/ Alder: 35/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt kontigent: Nej/ Svømmer status: Konkurrence svømmer

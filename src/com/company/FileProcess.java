@@ -22,17 +22,43 @@ public class FileProcess {
     public void writeToFile(String path, String text) {
 
         try {
-            FileWriter myWriter = new FileWriter(path, true);//TO BE CONTINUED
+            FileWriter myWriter = new FileWriter(path, true);
             myWriter.write(text);
             myWriter.write("\n");
             myWriter.close();
         } catch(IOException e){
                 System.err.println("An error occurred.");
                 e.printStackTrace();
-            }
+        }
     }
 
     public void removeFromFile(String path, String memberToBeDeleted){
+        File file = new File(path);
+        File tempFile = new File("tempFile.txt");
+        String currentLine;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            while((currentLine = reader.readLine()) != null) {
+                if(currentLine.equals(memberToBeDeleted)) {
+                    writer.write(currentLine);
+                    continue;
+                }
+            }
+            writer.close();
+            reader.close();
+
+            tempFile.renameTo(file);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
 
     }
 

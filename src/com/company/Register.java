@@ -1,4 +1,5 @@
 package com.company;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,6 +90,7 @@ public class Register {
                 System.out.print("Vælg: ");
                 int removeMember = scanner.nextInt()-1;
                 members.remove(removeMember);
+                new FileProcess().removeFromFile("Resources/Members.txt",members.get(removeMember).getName());
                 break;
             case 5: //Skift medlemsstatus
                 int memberNumber5 = 0;
