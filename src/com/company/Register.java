@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Register {
 
+    FileProcess fileProcess = new FileProcess();
     ArrayList<Clubmember> members = new ArrayList<>();
     ArrayList<Competitionswimmer> competitionswimmers = new ArrayList<>();
 
@@ -22,10 +23,9 @@ public class Register {
         int choice;
         choice = scanner.nextInt();
         switch(choice){
-            case 1:
+            case 1: //Tilbage til menu
                 break;
-            case 2:
-                int memberNumber = 0;
+            case 2: //Fjern medlem fra konkurrencesvømmere
                 printAllOfList(competitionswimmers);
                 System.out.println("\nFjern medlem fra kokurrence svømmere ved at skrive tallet foran navnet" +
                                 " og tryk enter");
@@ -33,8 +33,9 @@ public class Register {
                 int removeCompetitionSwimmer = scanner.nextInt()-1;
                 searchForClubMember(competitionswimmers.get(removeCompetitionSwimmer).getName())
                         .setCompetition("ikke konkurrence svømmer");
+                fileProcess.removeFromFile("Resources/Competitionswimmers.txt",
+                        competitionswimmers.get(removeCompetitionSwimmer).toString());
                 competitionswimmers.remove(removeCompetitionSwimmer);
-
                 break;
         }
     }
@@ -83,16 +84,14 @@ public class Register {
                         clubmember.getName(),clubmember.getMemberType(),clubmember.getSubscriptionPrice(),clubmember.getHasPayed(),clubmember.getCompetition(),swimDisciplin,"0"));
                 break;
             case 4: //Fjern et medlem
-                int memberNumber4 = 0;
                 printAllOfList(members);
                 System.out.println("\nSkriv tallet foran navnet på den person som skal fjernes og tryk enter");
                 System.out.print("Vælg: ");
                 int removeMember = scanner.nextInt()-1;
-                new FileProcess().removeFromFile("Resources/Members.txt",members.get(removeMember).toString());
+                fileProcess.removeFromFile("Resources/Members.txt",members.get(removeMember).toString());
                 members.remove(removeMember);
                 break;
             case 5: //Skift medlemsstatus
-                int memberNumber5 = 0;
                 printAllOfList(members);
                 System.out.println("\nSkriv tallet foran navnet på den person som skal have ændret status" +
                         " og tryk enter");
@@ -173,7 +172,7 @@ public class Register {
                 competition = "ikke konkurrence svømmer";
             }
             members.add(new Clubmember(age, ageType, name, memberType, subscriptionPrice, competition, "Nej"));
-            new FileProcess().writeToFile("Resources/Members.txt", members.get(members.size() - 1).toString());
+            fileProcess.writeToFile("Resources/Members.txt", members.get(members.size() - 1).toString());
             break;
             case 2:
                 break;
@@ -202,7 +201,7 @@ public class Register {
         return null;
     }
 
-    //Method to print all members of Competitionswimmers
+    //Method to print all members of Competitionswimmers or clubmembers
     public void printAllOfList(ArrayList arrayList) {
         int memberNumber = 0;
         for(int i = 0 ; i < arrayList.size() ; i++) {

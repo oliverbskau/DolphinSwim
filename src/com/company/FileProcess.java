@@ -1,23 +1,14 @@
 package com.company;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileProcess {
-
-    public void readFile(String path) {
-        File file = new File(path);
-        Scanner sc = null;
-        try {
-            sc = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        while (sc.hasNextLine())
-            System.out.println(sc.nextLine());
-    }
 
     public void writeToFile(String path, String text) {
 
@@ -32,8 +23,9 @@ public class FileProcess {
         }
     }
 
-    public void removeFromFile(String path, String memberToBeDeleted){
+    public void removeFromFile(String path, String memberToBeDeleted) {
         File file = new File(path);
+        Path pathToOriginalFile = Paths.get(file.getAbsolutePath());
         String currentLine;
 
         try {
@@ -48,27 +40,19 @@ public class FileProcess {
                     writer.write("\n");
                     writer.flush();
                 }
-
             }
 
             writer.close();
             reader.close();
 
-            if (!file.delete()) {
-                System.out.println("Kunne ikke slette filen, Fileprocess.java linje 56");
-                return;
-            }
+            Files.delete(pathToOriginalFile);
 
-            if (!tempFile.renameTo(file)) {
-                System.out.println("Kunne ikke omnavngive filen, Fileprocess.java linje 61");
+            if(!tempFile.renameTo(file)){
+                System.err.println("FEJL! kan ikke rename filen, Fileprocessing, linje 64");
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
 
         } catch (IOException e) {
             e.printStackTrace();
-
         }
 
     }
@@ -78,7 +62,7 @@ public class FileProcess {
         String[] variables;
 
         File file = new File(path);
-        Scanner scanner;
+        Scanner scanner = null;
 
         try {
             scanner = new Scanner(file);
@@ -124,5 +108,6 @@ public class FileProcess {
             System.err.println("Fil ikke fundet, check om sti'en findes");
             e.printStackTrace();
         }
+        scanner.close();
     }
 }

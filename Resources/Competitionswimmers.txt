@@ -1,3 +1,3 @@
-/ Navn: Oliver/ Alder: 22/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Brystsvømning/ Personlige rekord: 0
-/ Navn: Patrick/ Alder: 35/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Crawl/ Personlige rekord: 0
-/ Navn: Patrick/ Alder: 19/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Crawl/ Personlige rekord: 0
+/ Navn: Bobba Fat/ Alder: 45/ Aldersgruppe: Senior/ Medlem status: Aktiv/ Kontigent: 1600.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Crawl/ Personlige rekord: 0
+/ Navn: Phillip/ Alder: 290/ Aldersgruppe: SeniorPlus/ Medlem status: Aktiv/ Kontigent: 1200.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Brystsvømning/ Personlige rekord: 0
+/ Navn: Rasmus/ Alder: 9/ Aldersgruppe: Ungdom/ Medlem status: Aktiv/ Kontigent: 1000.0/ Betalt Kontigent: Nej/ Svømmer status: Konkurrence svømmer/ Svømmmedisciplin: Butterfly/ Personlige rekord: 0
