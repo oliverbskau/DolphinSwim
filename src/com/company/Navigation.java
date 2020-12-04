@@ -23,39 +23,28 @@ public class Navigation {
         fileProcess.loadMembers("Resources/Members.txt", register.members);
         fileProcess.loadMembers("Resources/Competitionswimmers.txt", register.competitionswimmers);
 
-        boolean navigator = true;
+        boolean navigatorOfMenu = true;
 
-        while(navigator){
+        while(navigatorOfMenu){
 
             menu.printMenu();
             int choice = menu.setChoiceOfMenuAndValidateOutput();
 
-                switch(choice){
-
-                case 1: //tilføj medlem
-                    register.addMembers();
-                    break;
-
-                case 2:
-                    register.membershipOptions();
-                    break;
-
-                case 3: //Kontigenter
-                    subscription.subscriptionNavigation(register.members);
-                    break;
-
-                case 4: //Svømmetider
-                    swimmingRecords.recordsNavigation(register.getCompetitionswimmers());
-                    break;
-
-                case 5: //Konkurrencesvømmere
-                    register.competitionsSwimmers();
-                    break;
-
-                case 6: //afslut program
-                    System.exit(0);
-                    break;
-           }
+            switch (choice) {
+                //tilføj medlem
+                case 1 -> register.addMembers();
+                //Se og rediger medlemsoplysninger
+                case 2 -> register.membershipOptions();
+                //Kontigenter
+                case 3 -> subscription.subscriptionNavigation(register.members);
+                //Svømmetider
+                case 4 -> swimmingRecords.recordsNavigation(register.getCompetitionswimmers());
+                //Konkurrencesvømmere
+                case 5 -> register.competitionsSwimmers();
+                //afslut program
+                case 6 -> System.exit(0);
+                }
+            }
         }
     }
 }

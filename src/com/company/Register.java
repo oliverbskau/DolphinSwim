@@ -90,6 +90,9 @@ public class Register {
                 int removeMember = scanner.nextInt()-1;
                 fileProcess.removeFromFile("Resources/Members.txt",members.get(removeMember).toString());
                 members.remove(removeMember);
+                if (competitionswimmers.size()>0) {
+                    competitionswimmers.remove(searchForCompetitionswimmer(members.get(removeMember).getName()));
+                }
                 break;
             case 5: //Skift medlemsstatus
                 printAllOfList(members);
