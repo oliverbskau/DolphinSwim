@@ -17,7 +17,7 @@ public class Navigation {
      * @param menu
      */
 
-    //method to navigate in menu, using a switch
+    //method to navigate in menu using a switch
     public void menuNavigation(Menu menu){
 
         fileProcess.loadMembers("Resources/Members.txt", register.members);
